@@ -22,9 +22,6 @@ cd = os.path.dirname(os.path.abspath(__file__))
 songs = os.listdir(cd)[7]
 # Songs folder complete route.
 songs_d = os.path.join(cd, songs, "")
-# Get the oldest file by creation date inside songs folder.
-# oldest_file = glob.glob(f'{songs_d}*.mp3')
-# oldest_file = sorted([songs_d+f for f in os.listdir("Songs")], key=os.path.getctime)[0]
 
 YDL_OPTIONS = {
         'format': 'bestaudio/best',
@@ -36,8 +33,6 @@ YDL_OPTIONS = {
             'preferredquality': '192'
         }],
     }
-
-# FFMPEG_OPTS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
 
 bot = commands.Bot(command_prefix=BOT_PREFIX)
 
@@ -92,14 +87,3 @@ async def play(ctx, songu):
         voice.play(discord.FFmpegPCMAudio(temaiken), after=lambda e: nextu_songu())
 
 bot.run(TOKEN)
-
-# is_playing = ctx.voice_client.is_playing()
-# voice = get(bot.voice_clients, guild=ctx.guild)
-
-# with YoutubeDL(YDL_OPTIONS) as ydl:
-#     ydl.download([info])
-                
-# print(oldest_file)
-# search("https://www.youtube.com/playlist?list=PL4NBH5o5_nZ1IMjyZaCk3afojxKWD62Xe")
-# search("https://www.youtube.com/watch?v=_pHO-mx7Ieg")
-# print(queue[0]['webpage_url'])
